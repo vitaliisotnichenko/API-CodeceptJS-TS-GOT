@@ -7,13 +7,16 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
-  tests: './*_test.js',
+  tests: './*test.ts',
   output: './output',
   helpers: {
     Playwright: {
       url: 'http://localhost',
-      show: true,
+      show: false,
       browser: 'chromium'
+    },
+    "AssertWrapper" : {
+      "require": "codeceptjs-assert"
     }
   },
   include: {
